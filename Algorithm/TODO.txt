@@ -1,0 +1,3 @@
+1. Two Sum 
+	Current: O(n^2)
+	Ideal:   O(n) 
