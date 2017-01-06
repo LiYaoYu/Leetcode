@@ -20,7 +20,7 @@ int* twoSum(int* nums, int numsSize, int target)
 
 //time: O(n^2)
 
-/* Draft */
+/* Draft 
 int* twoSum(int* nums, int numsSize, int target)
 {
 	find the smallest number "bias"
@@ -40,5 +40,5 @@ int* twoSum(int* nums, int numsSize, int target)
 		else 
 			array[diverse] = i (i is the index of the current number)
 }
-
+*/
 //time: O(n)
