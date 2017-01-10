@@ -25,12 +25,7 @@ int* twoSum(int* nums, int numsSize, int target)
 {
 	find the smallest number "bias"
 
-	if smallest number < 0
-	all the number in nums add the bias
-	to make sure all the number > 0
-	(maybe this is no need)
-
-	use a array with size (bias + target)
+	use a array with size (target - bias)
 	initiate it with all -1
 
 	for each number nums[i]
@@ -41,4 +36,40 @@ int* twoSum(int* nums, int numsSize, int target)
 			array[diverse] = i (i is the index of the current number)
 }
 */
+//time: O(n)
+
+//TODO: run -1 -2 -3 -4 -5 with target -8 will cause runtime error
+int* twoSum(int* nums, int numsSize, int target)
+{
+	int i;
+	int bias;
+	int* ans;
+	ans = malloc(sizeof(int) * 2);
+
+	bias = nums[0];
+
+	//find the smallest number
+	for (i = 1; i < numsSize; i++) {
+		if (nums[i] < bias)
+			bias = nums[i];
+	}
+
+	int sub;
+	int record[target - bias + 1];
+	memset(record, -1, sizeof(record));
+
+	for (i = 0; i < numsSize; i++) {
+		if (record[nums[i]] != -1) {
+			break;
+		} else {
+			sub = target - nums[i];
+			record[sub] = i;
+		}
+	}
+
+	ans[0] = record[nums[i]];
+	ans[1] = i;
+
+	return ans;
+}
 //time: O(n)
